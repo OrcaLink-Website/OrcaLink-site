@@ -1,0 +1,602 @@
+/* Include the Inter font */
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter.ttf") format("truetype"); /* Adjust path if needed */
+  font-weight: normal; /* Or specify font weights if available */
+  font-style: normal; /* Or specify font styles if available */
+}
+
+/* Include the IBM Plex Mono font */
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("./assets/fonts/IBMPlexMono-Medium.ttf") format("truetype"); /* Adjust path if needed */
+  font-weight: normal; /* Or specify font weights if available */
+  font-style: normal; /* Or specify font styles if available */
+}
+
+/* Apply the Inter font to paragraphs */
+p {
+  font-family: "Inter", sans-serif; /* Use Inter, fallback to sans-serif */
+}
+
+/* Apply the IBM Plex Mono font to everything else (adjust as needed) */
+h1, h2, h3, h4, h5, h6,
+nav, nav a,
+button, button a,
+.company-name,
+.member-name,
+.member-title,
+.quote,
+.bullet-point,
+.product-details p, /* Exclude product description paragraph */
+.bottom-component p {
+  /* Exclude bottom component description paragraph */
+  font-family: "IBM Plex Mono", monospace; /* Use IBM Plex Mono, fallback to monospace */
+}
+
+body {
+  margin: 0; /* Remove default body margins */
+  font-family: sans-serif; /* Choose your preferred font */
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+  scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
+  background-color: black;
+}
+
+.background-image-container {
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place it behind all other content */
+  background-image: url("./assets/images/space-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: opacity 0.6s ease; /* Add a smooth transition */
+}
+
+#section1 {
+  position: relative; /* Create a stacking context */
+  z-index: 1; /* Ensure #section1 content is above the background */
+}
+
+#section2,
+#section3,
+#section4 {
+    position: relative;
+    z-index: 1;
+}
+
+.full-screen-section {
+  min-height: 100vh; /* Make each section at least the height of the viewport */
+  display: flex; /* Use flexbox for vertical centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  padding: 20px; /* Add some padding around the content */
+}
+
+#section1,
+#section2,
+#section3,
+#section4 {
+  background-image: none; /* Remove background from sections */
+  background-color: transparent; /* Ensure no background color */
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+}
+
+header {
+  background-color: transparent; /* Example header background */
+  color: white;
+  padding: 10px;
+  position: fixed; /* Keep the header at the top */
+  width: 100%;
+  z-index: 100; /* Ensure header is on top of other content */
+}
+
+nav ul {
+  list-style: none; /* Remove bullet points from list */
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Center the navigation links */
+}
+
+nav li {
+  display: inline; /* Make list items horizontal */
+  margin: 0 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #333; /* Example footer background */
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+nav {
+  background-color: transparent;
+  color: white;
+  padding: 0px; /* Removed top padding */
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Keep padding here, but adjust as needed */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.company-name {
+  font-size: 1.8em; /* Adjust font size as needed */
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Use flexbox for the links */
+}
+
+.nav-links li {
+  margin-left: 20px; /* Add spacing between links */
+}
+
+.right-component button,
+.right-component button a {
+  /* Remove old button styles */
+  background-color: transparent;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex; /* Use flexbox for centering */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+}
+
+.right-component button a,
+.nav-links a {
+  /* Combine selectors for shared styles */
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 0.3s ease, border-color 0.3s ease; /* Add transition for color */
+  border: none;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.right-component button a::before,
+.nav-links a::before {
+  /* Top-left */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+}
+
+.right-component button a::after,
+.nav-links a::after {
+  /* Bottom-right */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 4px;
+  height: 4px;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.right-component button a:hover,
+.nav-links a:hover {
+  color: #6bb0b3; /* Saturated blue text color on hover */
+}
+
+.right-component button a:hover::before,
+.right-component button a:hover::after,
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  border-color: #6bb0b3; /* Saturated blue border color on hover */
+}
+
+
+#section1 {
+  color: white; /* Set default text color to ensure contrast */
+  display: flex;
+  flex-direction: column; /* Important for positioning the nav */
+  justify-content: flex-start; /* Align items to the top */
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Add an overlay if needed for better text readability */
+#section1::before {
+  /* Use a pseudo-element for the overlay */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Place overlay behind content */
+}
+
+/* Ensure content is above the overlay */
+#section1 > * {
+  /* Target direct children of #section1 */
+  position: relative;
+  z-index: 1; /* Place content above the overlay */
+}
+
+/* Optional: Style the heading to ensure visibility */
+#section1 h1 {
+  color: white; /* Or a color that contrasts well with the background */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section1-content {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+  min-height: 80vh; /* Ensure full viewport height for centering */
+}
+
+.left-component {
+  flex: 1; /* Takes up available space */
+  font-size: 1.2em; /* Large font size */
+  padding: 20px;
+  color: white; /* Ensure text is visible */
+  
+}
+
+.right-component {
+  flex: 1; /* Takes up available space */
+  padding: 20px;
+  text-align: center; /* Center the image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section1-content {
+    flex-direction: column; /* Stack components vertically */
+    width: 90%; /* Adjust width for smaller screens */
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .left-component {
+    font-size: 1em; /* Adjust font size */
+    padding: 10px;
+    text-align: center;
+  }
+
+  .right-component {
+    padding: 10px;
+    margin-top: 20px; /* Add space between components */
+  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  #section1 {
+    background-size: cover; /* Maintain cover on smaller screens */
+    background-position: center; /* Maintain centering */
+  }
+}
+
+/* Responsive adjustments (example) */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column; /* Stack brand and links vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 10px;
+  }
+
+  .nav-links {
+    margin-top: 10px; /* Add space between brand and links */
+    flex-direction: column; /* Stack links vertically */
+  }
+
+  .nav-links li {
+    margin: 5px 0; /* Adjust margin for stacked links */
+  }
+}
+
+#section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 50px;
+  color: white; /* White text */
+}
+
+.section2-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 60px; /* Increased gap */
+}
+
+.left-component {
+  flex: 1;
+  padding: 20px;
+  text-align: center; /* Center the image */
+}
+
+.left-component img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.right-component {
+  flex: 1;
+  padding: 20px;
+}
+
+.right-component p {
+  margin-bottom: 40px; /* Increased margin */
+  text-align: left; /* Left justify text */
+}
+
+.right-component button a {
+  color: white; /* Make the link text white */
+  text-decoration: none; /* Remove underline from the link */
+  display: block; /* Make the link a block element to fill the button */
+  width: 100%; /* Ensure the link takes full width of button */
+  height: 100%; /* Ensure the link takes full height of button */
+  padding: 15px 30px; /* Increased padding */
+  font-size: 1.2em; /* Increased font size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section2-content {
+    flex-direction: column;
+    width: 90%;
+    padding: 10px;
+    gap: 30px; /* Adjust gap for smaller screens */
+  }
+
+  .left-component {
+    padding: 10px;
+  }
+
+  .right-component {
+    padding: 10px;
+    text-align: center; /* Center text on smaller screens */
+  }
+
+  .right-component p {
+    margin-bottom: 10px;
+  }
+
+}
+
+#section3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+#section3 h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white; /* Changed title color to white */
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows */
+  gap: 20px; /* Spacing between grid items */
+  padding: 20px; /* Padding around the grid */
+  width: 80%; /* Occupy most of the section width */
+  max-width: 1200px; /* Set a max-width for larger screens */
+  margin: 20px auto; /* Center the grid */
+}
+
+.team-member {
+  border: 0px solid white;
+  padding: 0; /* Remove padding */
+  background-color: transparent;
+  text-align: center;
+  width: fit-content;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.team-member::before,
+.team-member::after {
+    content: "";
+    position: absolute;
+    width: 4px; /* Adjust size as needed */
+    height: 4px; /* Adjust size as needed */
+    border-style: solid; /* Must be solid to show */
+    border-color: white; /* Or your preferred color */
+    z-index: 1; /* Ensure they're above the image */
+}
+
+.team-member::before { /* Bottom-left corner */
+    left: 0;
+    bottom: 0;
+    border-width: 0 0 1px 1px; /* Only bottom and left borders */
+}
+
+.team-member::after { /* Bottom-right corner */
+    right: 0;
+    bottom: 0;
+    border-width: 0 1px 1px 0; /* Only bottom and right borders */
+}
+
+
+.team-member img {
+  width: 225px; /* 50% larger (150px * 1.5) */
+  height: 225px; /* 50% larger */
+  border-radius: 0%; /* No border radius */
+  object-fit: cover;
+  margin-bottom: 5px;
+  border-width: 100px;
+}
+
+.member-details {
+  width: 100%;
+  text-align: center;
+  padding: 2px; /* Add padding to the text container */
+  margin: 0;
+}
+
+.member-name {
+  font-weight: bold;
+  margin-bottom: 2px;
+  margin-top: 1px;
+  color: white; /* Changed name color to white */
+}
+
+.member-title {
+  font-size: 0.9em;
+  /* color: #666;  Removed gray color */
+  color: #6bb0b3; /* Example saturated blue - adjust as needed */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    grid-template-rows: repeat(3, 1fr); /* 3 rows on smaller screens */
+    gap: 15px; /* Adjust gap */
+    padding: 15px; /* Adjust padding */
+    width: 90%; /* Adjust width */
+  }
+
+  .team-member {
+    margin: 10px; /* Adjust margin between components */
+  }
+}
+
+#section4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 50px;
+  color: white; /* Set default text color to white for contrast */
+}
+
+.section4-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.left-component {
+  flex: 1;
+  padding: 20px;
+  text-align: left; /* Align text to the left */
+}
+
+.left-component h2 {
+  font-size: 2em;
+  margin-bottom: 30px; /* Increased margin to move it up */
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reduced gap */
+}
+
+.contact-details h3 {
+  font-size: 1.5em; /* Large heading size */
+}
+
+.right-component {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.right-component img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section4-content {
+    flex-direction: column;
+    width: 90%;
+    padding: 10px;
+  }
+
+  .left-component {
+    text-align: center; /* Center text on smaller screens */
+    padding: 10px;
+  }
+
+  .left-component h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .contact-details {
+    gap: 10px;
+  }
+
+  .contact-details h3 {
+    font-size: 1.2em;
+  }
+
+  .right-component {
+    padding: 10px;
+    margin-top: 20px;
+  }
+}

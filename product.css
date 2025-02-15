@@ -1,0 +1,202 @@
+body {
+  margin: 0; /* Remove default body margins */
+  font-family: sans-serif;
+}
+
+.product-hero {
+  width: 100%;
+  margin-top: 10vh; /* Start 20% down from the top */
+  overflow: hidden; /* Hide any overflowing image content */
+}
+
+.product-hero img {
+  width: 70%; /* 70% of the parent container's width */
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto; /* Center the image */
+}
+
+.product-details {
+  width: 80%;
+  max-width: 900px; /* Set a maximum width */
+  margin: 40px auto; /* Center the container */
+  text-align: center; /* Center the title */
+}
+
+.product-details h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.product-details p {
+  text-align: left; /* Left-align the description */
+  font-size: 1em;
+  line-height: 1.6; /* Improve readability */
+}
+
+.key-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 60px; /* Increased gap between rows and columns */
+  padding: 60px; /* Increased padding around the grid */
+  width: 80%;
+  max-width: 1200px;
+  margin: 60px auto; /* Increased margin around the grid */
+}
+
+.key-feature {
+  display: flex;
+  flex-direction: column; /* Stack heading and description vertically */
+  align-items: flex-start;
+}
+
+.bullet-point {
+  font-size: 2em;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+.key-feature h3 {
+  /* Style the feature heading */
+  font-size: 1.5em; /* Larger heading size */
+  margin-bottom: 5px; /* Space between heading and description */
+}
+
+.key-feature p {
+  /* Style the feature description */
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments (example) */
+@media (max-width: 768px) {
+  .key-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 30px; /* Adjust gap */
+    padding: 30px; /* Adjust padding */
+    margin: 30px auto; /* Adjust margin */
+  }
+
+  .bullet-point {
+    font-size: 1.5em;
+  }
+
+  .key-feature h3 {
+    font-size: 1.2em;
+  }
+
+  .key-feature p {
+    font-size: 0.9em;
+  }
+}
+
+.testimonials-section {
+  width: 80%;
+  max-width: 1200px;
+  margin: 60px auto; /* Space above and below */
+  text-align: center; /* Center the heading */
+}
+
+.testimonials-section h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.testimonial-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* Increased gap */
+}
+
+.testimonial {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  border: 1px solid #ccc; /* Added border */
+  padding: 20px; /* Added padding */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.testimonial img {
+  width: 100px;
+  height: 100px;
+  border-radius: 0%; /* Make image square */
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.testimonial-text {
+  text-align: left; /* Left align the text */
+}
+
+.quote {
+  font-style: italic;
+  color: #666; /* Example gray color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonial-grid {
+    flex-direction: column;
+    gap: 40px; /* Adjust gap for smaller screens */
+  }
+
+  .testimonial {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+  }
+
+  .testimonial img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-text {
+    text-align: center;
+  }
+}
+
+.bottom-components {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 100px auto; /* Increased margin for more spacing */
+}
+
+.bottom-component {
+    flex: 1;
+    padding: 20px;
+    /* border: 1px solid #ccc;  Removed border */
+    border-radius: 8px;
+    text-align: center; /* Center text within the component */
+}
+
+.bottom-component h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center; /* Center the heading */
+}
+
+.bottom-component p {
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bottom-components {
+    flex-direction: column; /* Stack components vertically */
+    gap: 20px;
+  }
+
+  .bottom-component {
+    text-align: center; /* Center text on smaller screens */
+  }
+}
