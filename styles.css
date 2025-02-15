@@ -64,8 +64,8 @@ body {
 #section2,
 #section3,
 #section4 {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .full-screen-section {
@@ -220,7 +220,6 @@ nav {
   border-color: #6bb0b3; /* Saturated blue border color on hover */
 }
 
-
 #section1 {
   color: white; /* Set default text color to ensure contrast */
   display: flex;
@@ -275,7 +274,6 @@ nav {
   font-size: 1.2em; /* Large font size */
   padding: 20px;
   color: white; /* Ensure text is visible */
-  
 }
 
 .right-component {
@@ -405,7 +403,6 @@ nav {
   .right-component p {
     margin-bottom: 10px;
   }
-
 }
 
 #section3 {
@@ -446,30 +443,34 @@ nav {
   flex-direction: column;
   align-items: center;
   position: relative;
+  justify-self: center; /* Center horizontally within grid cell */
+  align-self: center; /* Center vertically within grid cell */
 }
+
 .team-member::before,
 .team-member::after {
-    content: "";
-    position: absolute;
-    width: 4px; /* Adjust size as needed */
-    height: 4px; /* Adjust size as needed */
-    border-style: solid; /* Must be solid to show */
-    border-color: white; /* Or your preferred color */
-    z-index: 1; /* Ensure they're above the image */
+  content: "";
+  position: absolute;
+  width: 4px; /* Adjust size as needed */
+  height: 4px; /* Adjust size as needed */
+  border-style: solid; /* Must be solid to show */
+  border-color: white; /* Or your preferred color */
+  z-index: 1; /* Ensure they're above the image */
 }
 
-.team-member::before { /* Bottom-left corner */
-    left: 0;
-    bottom: 0;
-    border-width: 0 0 1px 1px; /* Only bottom and left borders */
+.team-member::before {
+  /* Bottom-left corner */
+  left: 0;
+  bottom: 0;
+  border-width: 0 0 1px 1px; /* Only bottom and left borders */
 }
 
-.team-member::after { /* Bottom-right corner */
-    right: 0;
-    bottom: 0;
-    border-width: 0 1px 1px 0; /* Only bottom and right borders */
+.team-member::after {
+  /* Bottom-right corner */
+  right: 0;
+  bottom: 0;
+  border-width: 0 1px 1px 0; /* Only bottom and right borders */
 }
-
 
 .team-member img {
   width: 225px; /* 50% larger (150px * 1.5) */
