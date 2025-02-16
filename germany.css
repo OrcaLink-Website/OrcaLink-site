@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter.ttf") format("truetype"); /* Adjust path if needed */
+  font-weight: normal; /* Or specify font weights if available */
+  font-style: normal; /* Or specify font styles if available */
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-Medium.ttf") format("truetype"); /* Adjust path if needed */
+  font-weight: normal; /* Or specify font weights if available */
+  font-style: normal; /* Or specify font styles if available */
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #111; /* Almost black - adjust as needed */
+  color: white; /* White text */
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.back-to-index {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #6bb0b3; /* Teal background */
+  border: none;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden; /* Hide the square arrow */
+}
+
+.back-to-index a {
+  color: white;
+  text-decoration: none;
+  font-size: 0; /* Hide the original arrow */
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent; /* Adjust size as needed */
+  border-bottom: 10px solid transparent; /* Adjust size as needed */
+  border-right: 15px solid white; /* Adjust size as needed - changed to right */
+}
+
+.back-to-index:hover {
+  background-color: #559194; /* Slightly darker teal on hover */
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+  color: white;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px; /* Add some space below the title */
+}
+
+.header-description {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0 auto; /* Center the text */
+  max-width: 80%; /* Limit the width of the text */
+}
+
+.section {
+  width: 80%;
+  max-width: 1200px;
+  margin: 80px auto; /* Increased margin between sections */
+  display: flex;
+  align-items: center;
+}
+
+.section.reversed {
+  flex-direction: row-reverse;
+}
+
+.section img, .section video { /* Add video to the selector */
+  width: 50%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  margin: 40px;
+}
+
+.section:not(.reversed) img, .section:not(.reversed) video {
+  margin-right: auto;
+}
+
+.section.reversed img, .section.reversed video {
+  margin-left: auto;
+}
+
+.section p {
+  width: 50%;
+  padding: 20px;
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 40px; /* Increased margin around paragraph */
+  font-family: "Inter", sans-serif;
+  position: relative;
+}
+
+.section p::before,
+.section p::after {
+  content: "";
+  position: absolute;
+  width: 6px; /* Adjust size as needed */
+  height: 6px; /* Adjust size as needed */
+  border-style: solid; /* Must be solid to show */
+  border-color: white; /* Or your preferred color */
+  z-index: 1; /* Ensure they're above the image */
+}
+
+.section p::before {
+  /* Top-left corner */
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px; /* Top and left borders */
+}
+
+.section p::after {
+  /* Bottom-right corner */
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0; /* Bottom and right borders */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column; /* Stack image and text vertically */
+    text-align: center; /* Center text */
+  }
+
+  .section img {
+    width: 100%; /* Image takes full width */
+    margin-bottom: 20px;
+  }
+
+  .section p {
+    width: 100%; /* Text takes full width */
+    padding: 10px;
+  }
+}

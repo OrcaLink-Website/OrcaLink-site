@@ -382,6 +382,18 @@ nav {
   font-size: 1.2em; /* Increased font size */
 }
 
+.learn-more-button {
+  display: inline-block; /* Allows buttons to sit side by side */
+  padding: 10px 10px; /* Slightly smaller padding */
+  font-size: 1em; /* Slightly smaller font size */
+  text-decoration: none;
+  background-color: #6bb0b3;
+  color: white;
+  border-radius: 8px;
+  margin: 20px; /* Space between buttons */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .section2-content {

@@ -1,6 +1,44 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter.ttf") format("truetype"); /* Adjust path if needed */
+  font-weight: normal; /* Or specify font weights if available */
+  font-style: normal; /* Or specify font styles if available */
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-Medium.ttf") format("truetype"); /* Adjust path if needed */
+  font-weight: normal; /* Or specify font weights if available */
+  font-style: normal; /* Or specify font styles if available */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.product-details h1,
+.key-feature h3,
+.testimonials-section h2,
+.bottom-component h3 {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+p,
+.product-details p,
+.key-feature p,
+.quote,
+.bottom-component p {
+  font-family: "Inter", sans-serif;
+}
+
 body {
   margin: 0; /* Remove default body margins */
   font-family: sans-serif;
+  background-color: #111; /* Almost black - adjust as needed */
+  color: white; /* White text */
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .product-hero {
@@ -20,7 +58,7 @@ body {
 
 .product-details {
   width: 80%;
-  max-width: 900px; /* Set a maximum width */
+  max-width: 1200px; /* Set a maximum width */
   margin: 40px auto; /* Center the container */
   text-align: center; /* Center the title */
 }
@@ -48,27 +86,34 @@ body {
 }
 
 .key-feature {
-  display: flex;
-  flex-direction: column; /* Stack heading and description vertically */
-  align-items: flex-start;
+  display: flex; /* Enable flexbox */
+  flex-direction: row; /* Arrange items horizontally */
+  align-items: flex-start; /* Align items to the top */
 }
 
 .bullet-point {
   font-size: 2em;
-  margin-right: 10px;
+  margin-right: 10px; /* Space between bullet and heading */
   line-height: 1;
 }
 
+.key-feature-text {
+  /* New container for h3 and p */
+  display: flex;
+  flex-direction: column; /* Stack h3 and p vertically */
+}
+
 .key-feature h3 {
-  /* Style the feature heading */
-  font-size: 1.5em; /* Larger heading size */
-  margin-bottom: 5px; /* Space between heading and description */
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  margin-right: 10px; /* Space between heading and description */
+  font-family: "IBM Plex Mono", monospace; /* IBM Plex Mono for headings */
 }
 
 .key-feature p {
-  /* Style the feature description */
   font-size: 1em;
   line-height: 1.4;
+  font-family: "IBM Plex Mono", monospace; /* IBM Plex Mono for paragraphs */
 }
 
 /* Responsive adjustments (example) */
@@ -81,16 +126,28 @@ body {
     margin: 30px auto; /* Adjust margin */
   }
 
+  .key-feature {
+    flex-direction: column; /* Stack components vertically */
+    align-items: flex-start; /* Align to the left on smaller screens */
+  }
+
   .bullet-point {
-    font-size: 1.5em;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .key-feature-text {
+    /* Stack h3 and p vertically */
+    flex-direction: column;
   }
 
   .key-feature h3 {
-    font-size: 1.2em;
+    margin-right: 0;
+    margin-bottom: 5px;
   }
-
   .key-feature p {
     font-size: 0.9em;
+    font-family: "IBM Plex Mono", monospace;
   }
 }
 
@@ -116,9 +173,33 @@ body {
   display: flex;
   align-items: flex-start;
   flex: 1;
-  border: 1px solid #ccc; /* Added border */
+  border: 0px solid #ccc; /* Added border */
   padding: 20px; /* Added padding */
   border-radius: 8px; /* Optional: Add rounded corners */
+  position: relative;
+}
+
+.testimonial::before,
+.testimonial::after {
+    content: "";
+    position: absolute;
+    width: 6px; /* Adjust size as needed */
+    height: 6px; /* Adjust size as needed */
+    border-style: solid; /* Must be solid to show */
+    border-color: white; /* Or your preferred color */
+    z-index: 1; /* Ensure they're above the image */
+}
+
+.testimonial::before { /* Top-left corner */
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px; /* Top and left borders */
+}
+
+.testimonial::after { /* Bottom-right corner */
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0; /* Bottom and right borders */
 }
 
 .testimonial img {
@@ -162,26 +243,50 @@ body {
 }
 
 .bottom-components {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    width: 80%;
-    max-width: 1200px;
-    margin: 100px auto; /* Increased margin for more spacing */
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 100px auto; /* Increased margin for more spacing */
 }
 
 .bottom-component {
-    flex: 1;
-    padding: 20px;
-    /* border: 1px solid #ccc;  Removed border */
-    border-radius: 8px;
-    text-align: center; /* Center text within the component */
+  flex: 1;
+  padding: 20px;
+  /* border: 1px solid #ccc;  Removed border */
+  border-radius: 8px;
+  text-align: center; /* Center text within the component */
+  position: relative;
+}
+
+.bottom-component::before,
+.bottom-component::after {
+    content: "";
+    position: absolute;
+    width: 6px; /* Adjust size as needed */
+    height: 6px; /* Adjust size as needed */
+    border-style: solid; /* Must be solid to show */
+    border-color: white; /* Or your preferred color */
+    z-index: 1; /* Ensure they're above the image */
+}
+
+.bottom-component::before { /* Top-left corner */
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px; /* Top and left borders */
+}
+
+.bottom-component::after { /* Bottom-right corner */
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0; /* Bottom and right borders */
 }
 
 .bottom-component h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    text-align: center; /* Center the heading */
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center; /* Center the heading */
 }
 
 .bottom-component p {
@@ -199,4 +304,34 @@ body {
   .bottom-component {
     text-align: center; /* Center text on smaller screens */
   }
+}
+.back-to-index {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #6bb0b3; /* Teal background */
+  border: none;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden; /* Hide the square arrow */
+}
+
+.back-to-index a {
+  color: white;
+  text-decoration: none;
+  font-size: 0; /* Hide the original arrow */
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent; /* Adjust size as needed */
+  border-bottom: 10px solid transparent; /* Adjust size as needed */
+  border-right: 15px solid white; /* Adjust size as needed - changed to right */
+}
+
+.back-to-index:hover {
+  background-color: #559194; /* Slightly darker teal on hover */
 }
